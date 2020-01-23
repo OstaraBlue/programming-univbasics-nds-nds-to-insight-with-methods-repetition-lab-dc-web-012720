@@ -44,13 +44,16 @@ def total_gross(source)
   # Visit each key (i.e. director name), look up the value in the hash
   # returned by directors_totals, and add it to a running total. When done,
   # return the total
+  total = 0
   counter = 0 
-  total = []
-  while counter <directors_totals.count do 
-    total = directors_totals.map{|key, value| value}
+  profit = directors_totals(source)
+  names = list_of_directors(source)
+  while counter < names.count do 
+    name = names[counter]
+    total += profit[name]
     counter += 1
   end
-  total.sum
+  total
 end
 
 
